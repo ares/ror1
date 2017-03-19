@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t(:computers) %></h1>
+
+<table class="table table-striped table-hover">
+  <thead class="thead">
+    <tr>
+      <th><%= link_to 'City', computers_path(:order => 'city') %></th>
+      <th><%= link_to 'Warranty', computers_path(:order => 'warranty') %></th>
+      <th><%= link_to 'Vendor', computers_path(:order => 'vendor') %></th>
+      <th><%= link_to 'Serial number', computers_path(:order => 'serial_number') %></th>
+      <th><%= link_to 'Created at', computers_path(:order => 'created_at') %></th>
+      <th><%= link_to 'Updated at', computers_path(:order => 'updated_at') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @computers.each do |computer| %>
+      <tr>
+        <td><%= computer.city %></td>
+	<td><%= computer.warranty ? image_tag('glyphicons-207-ok.png') : '' %></td>
+        <td><%= computer.vendor %></td>
+        <td><%= computer.serial_number %></td>
+	<td><%= l computer.created_at, :format => :short %></td>
+	<td><%= l computer.updated_at, :format => :short %></td>
+        <td><%= link_to 'Show', computer %></td>
+        <td><%= link_to 'Edit', edit_computer_path(computer) %></td>
+        <td><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Computer', new_computer_path %>

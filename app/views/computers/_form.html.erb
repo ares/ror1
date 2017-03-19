@@ -1,0 +1,42 @@
+<%= form_for(computer) do |f| %>
+  <% if computer.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4 class="alert-heading"><%= computer.errors.count %>  <%= t("error", :count => computer.errors.count) %> prohibited this computer from being saved:</h4>
+
+      <ul>
+      <% computer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-5">
+    <div class="form-group row">
+      <%= f.label :city %>*
+      <%= f.collection_select :city, Computer::CITIES, :to_s, :to_s, {}, :class => "form-control" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :warranty %>
+      <%= f.check_box :warranty, :class => "form-check" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :vendor %>*
+      <%= f.text_field :vendor, :class => "form-control" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :serial_number %>*
+      <%= f.text_field :serial_number, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="row"></div>
+  <div class="btn-group">
+    <%= link_to 'Cancel', computers_path, :class => 'btn btn-secondary' %>
+    <%= f.submit :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+

@@ -1,0 +1,27 @@
+<p>
+  <strong>City:</strong>
+  <%= @computer.city %>
+</p>
+
+<p>
+  <strong>Warranty:</strong>
+  <%= @computer.warranty %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @computer.vendor %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @computer.serial_number %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @computer.user.try(:email) %>
+</p>
+
+<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%= link_to 'Back', computers_path %>

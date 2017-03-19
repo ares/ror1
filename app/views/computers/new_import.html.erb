@@ -1,0 +1,23 @@
+<h1>Import dat z CSV</h1>
+
+
+<div class="alert alert-info">
+Nahrávejte soubory ve formátu CSV se čtyřmi hodnotami na každém řádku. Hodnoty jsou v tomto pořadí:
+město,záruka,výrobce,sériové číslo. Oddělovač musí být čárka, hodnoty nemají být v uvozovkách, např.
+
+  <pre>
+  Brno,true,Dell,25
+  Praha,true,Dell,26
+  Olomouc,true,HP,27
+  Brno,true,Dell,28
+  </pre>
+</div>
+
+<%= form_tag import_computers_path, :multipart => true do |f| %>
+	<div class="form-group row">
+		<%= file_field :file, :content, :class => 'form-control' %>
+	</div>
+	<div class="form-group row">
+		<%= submit_tag 'Importovat', :class => 'btn btn-primary' %>
+	</div>
+<% end %>

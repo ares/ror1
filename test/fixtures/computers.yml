@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  warranty: false
+  vendor: MyString
+  serial_number: MyString
+
+two:
+  city: MyString
+  warranty: false
+  vendor: MyString
+  serial_number: MyString
